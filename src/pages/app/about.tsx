@@ -1,3 +1,10 @@
+import { Helmet } from 'react-helmet-async'
+
 export function About() {
-  return <h1>About</h1>
+  return (
+    <>
+      <Helmet title="Sobre" />
+      <h1>About</h1>
+    </>
+  )
 }
