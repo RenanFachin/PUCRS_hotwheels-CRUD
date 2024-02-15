@@ -8,7 +8,7 @@ export function AppLayout() {
     <div className="flex min-h-screen flex-col bg-primary-100 antialiased">
       <Navbar />
 
-      <div className="flex flex-1 flex-col gap-4 p-8 pt-6">
+      <div className="relative flex flex-1 flex-col gap-4 p-8 pt-6">
         {/* Contéudo da página */}
         <Outlet />
       </div>

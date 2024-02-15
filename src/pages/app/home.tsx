@@ -1,5 +1,6 @@
 import { GitMergeIcon, Plus } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
 
 import { Button } from '@/components/button'
 
@@ -24,7 +25,9 @@ export function Home() {
             <Plus className="size-3" />
           </Button.Icon>
 
-          <Button.Text>Adicionar</Button.Text>
+          <Button.Text>
+            <Link to="/add-cars">Adicionar</Link>
+          </Button.Text>
         </Button>
 
         <Button variant="primary">
@@ -32,7 +35,11 @@ export function Home() {
             <GitMergeIcon className="size-3" />
           </Button.Icon>
 
-          <Button.Text>GitHub</Button.Text>
+          <Button.Text>
+            <Link to="https://github.com/RenanFachin/PUCRS_hotwheels-CRUD">
+              GitHub
+            </Link>
+          </Button.Text>
         </Button>
       </div>
     </div>
