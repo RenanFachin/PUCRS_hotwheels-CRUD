@@ -1,6 +1,8 @@
 import { Check } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 
+import { Task } from '@/components/task'
+
 export function About() {
   return (
     <div className="grid w-full flex-1 grid-cols-2 flex-col items-center py-12">
@@ -25,76 +27,41 @@ export function About() {
         </span>
 
         <div className="flex max-w-md flex-col items-start gap-4">
-          <div className="flex items-center justify-center gap-3">
-            <div className="rounded-md border p-1">
-              <Check className="size-3 text-green-500" />
-            </div>
-            <span className="text-sm">
-              <span className="font-bold underline">
-                Implementar sistema de front-end
-              </span>{' '}
-              para uma coleção de carrinhos HotWheels
-            </span>
-          </div>
+          <Task>
+            <span className="font-bold underline">
+              Implementar sistema de front-end
+            </span>{' '}
+            para uma coleção de carrinhos HotWheels
+          </Task>
 
-          <div className="flex items-center justify-center gap-3">
-            <div className="rounded-md border p-1">
-              <Check className="size-3 text-green-500" />
-            </div>
-            <span className="text-sm">
-              Na fase 1 o projeto deve ser{' '}
-              <span className="font-bold underline">estático</span>
-            </span>
-          </div>
+          <Task>
+            Na fase 1 o projeto deve ser{' '}
+            <span className="font-bold underline">estático</span>
+          </Task>
 
-          <div className="flex items-center justify-center gap-2">
-            <div className="rounded-md border p-1">
-              <Check className="size-3 text-green-500" />
-            </div>
-            <span className="text-sm">Criar um projeto React</span>
-          </div>
+          <Task>Criar um projeto React</Task>
 
-          <div className="flex items-center justify-center gap-3">
-            <div className="rounded-md border p-1">
-              <Check className="size-3 text-green-500" />
-            </div>
-            <span className="text-sm">
-              O projeto deve possuir componentes de entrada de dados para o
-              formulário de cadastro
-            </span>
-          </div>
+          <Task>
+            O projeto deve possuir componentes de entrada de dados para o
+            formulário de cadastro
+          </Task>
 
-          <div className="flex items-center justify-center gap-3">
-            <div className="rounded-md border p-1">
-              <Check className="size-3 text-green-500" />
-            </div>
-            <span className="text-sm">
-              O projeto deve possuir{' '}
-              <span className="font-bold underline">validação</span> de dados do
-              formulário
-            </span>
-          </div>
+          <Task>
+            O projeto deve possuir{' '}
+            <span className="font-bold underline">validação</span> de dados do
+            formulário
+          </Task>
 
-          <div className="flex items-center justify-center gap-3">
-            <div className="rounded-md border p-1">
-              <Check className="size-3 text-green-500" />
-            </div>
-            <span className="text-sm">
-              O projeto deve possuir{' '}
-              <span className="font-bold underline">feedbacks visuais</span>{' '}
-              para o usuário
-            </span>
-          </div>
+          <Task>
+            O projeto deve possuir{' '}
+            <span className="font-bold underline">feedbacks visuais</span> para
+            o usuário
+          </Task>
 
-          <div className="flex items-center justify-center gap-3">
-            <div className="rounded-md border p-1">
-              <Check className="size-3 text-green-500" />
-            </div>
-            <span className="text-sm">
-              Na fase 1: Deve possuir funcionalidades dinâmicas (listagem,
-              busca, criação e exclusão)
-            </span>
-          </div>
+          <Task>
+            Na fase 1: Deve possuir funcionalidades dinâmicas (listagem, busca,
+            criação e exclusão)
+          </Task>
         </div>
       </div>
     </div>
