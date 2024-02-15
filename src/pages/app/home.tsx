@@ -13,7 +13,7 @@ export function Home() {
 
       <p className="text-3xl font-bold">Bem-vindo ao CRUD de HotWheels!</p>
 
-      <p className="max-w-96 text-center text-primary-500">
+      <p className="max-w-md text-center text-primary-500">
         Aplicação construída para a cadeira de desenvolvimento de sistemas
         front-end da PUC-RS
       </p>

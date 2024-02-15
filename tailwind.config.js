@@ -20,6 +20,9 @@ export default {
           500: '#D90429',
         },
       },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      },
     },
   },
   plugins: [],
