@@ -23,6 +23,9 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
       },
+      gridTemplateColumns: {
+        custom: '500px 1fr',
+      },
     },
   },
   plugins: [],
