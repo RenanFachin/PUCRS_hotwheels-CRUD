@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { tv } from 'tailwind-variants'
 
 const buttonStyle = tv({
-  base: 'flex items-center justify-center gap-2 rounded-md border px-3 py-2 shadow-sm group',
+  base: 'flex items-center justify-center gap-2 rounded-md border px-3 py-2 shadow-sm group disabled:cursor-not-allowed',
   variants: {
     color: {
       primary: 'text-primary-500 hover:text-primary-700',

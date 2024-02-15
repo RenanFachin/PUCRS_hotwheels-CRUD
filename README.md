@@ -22,3 +22,6 @@ AddCars: http://localhost:5174/add-cars
 
 ## Melhorias no SEO da página
 Utilizando a lib react-helmet-async que permite a manipulação das META tags de cada página.
+
+## Validação no formulário
+As validações impostas neste projeto foram criadas a partir das biblitoecas react-hook-form e zod. Ambas fornecem funcionalidades que garantem a tipagem correta dos dados e também a validação dos campos durante o submit do form.

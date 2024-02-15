@@ -1,4 +1,3 @@
-import { Check } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 
 import { Task } from '@/components/task'
