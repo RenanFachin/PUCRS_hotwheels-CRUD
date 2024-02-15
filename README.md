@@ -6,6 +6,7 @@ O framework utilizado para elaboração do projeto foi o vitejs, que é um frame
 
 ## Estilização (Tailwindcss)
 A escolha pelo tailwindcss para estilização do projeto se deu pela produtividade, customização flexível, manutenção simples, **consistência visual** e a fácil integração com react.
+Definição da paleta de cores: https://coolors.co/palette/2b2d42-8d99ae-edf2f4-ef233c-d90429
 
 ## Rotas
 Para criação de das rotas da aplicação foi utilizado a biblioteca react-router-dom para melhor manipulação das rotas.
