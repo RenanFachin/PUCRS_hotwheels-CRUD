@@ -7,10 +7,8 @@ import { CarForm, CarFormSchema } from '@/components/car-form'
 import { CarList } from '@/components/car-list'
 import { CARS } from '@/utils/carsData'
 
-function getRandomInt(min, max) {
-  // Use Math.floor para arredondar para o menor número inteiro
-  // Use Math.random() para gerar um número decimal no intervalo [0, 1)
-  // Multiplique pela diferença entre max e min e adicione min para ajustar o intervalo
+// Criando um ID aleatório
+function getRandomInt(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
@@ -48,7 +46,7 @@ export function Cars() {
       await new Promise((resolve) => setTimeout(resolve, 800)) // Simulando uma chamada para API
 
       const newCar = {
-        id: getRandomInt(100, 1000),
+        id: getRandomInt(6, 10000),
         name: data.carName,
         year: data.carYear,
         brand: data.carBrand,
@@ -60,6 +58,7 @@ export function Cars() {
       const carsArray = [...cars, newCar]
 
       setCars(carsArray)
+      console.log(cars)
 
       toast.success('Carro adicionar com sucesso!')
     } catch {

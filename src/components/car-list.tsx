@@ -5,5 +5,9 @@ interface CarListProps {
 }
 
 export function CarList({ children }: CarListProps) {
-  return <div className="grid grid-cols-3 gap-8 px-32">{children}</div>
+  return (
+    <div className="scrollbar-thin scrollbar-thumb-highlight-300/20 scrollbar-track-primary-100 grid max-h-[700px] grid-cols-3 gap-8 overflow-y-scroll px-32">
+      {children}
+    </div>
+  )
 }
