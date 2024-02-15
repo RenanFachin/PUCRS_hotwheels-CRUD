@@ -25,3 +25,20 @@ Utilizando a lib react-helmet-async que permite a manipulação das META tags de
 
 ## Validação no formulário
 As validações impostas neste projeto foram criadas a partir das biblitoecas react-hook-form e zod. Ambas fornecem funcionalidades que garantem a tipagem correta dos dados e também a validação dos campos durante o submit do form.
+
+## Instalação
+Faça o clone do repositório
+
+Instalando as dependências
+```bash
+npm i
+```
+
+Rodando o projeto
+```bash
+npm run dev
+```
+
+## Autor
+
+- [Renan Fachin](https://github.com/RenanFachin/)
