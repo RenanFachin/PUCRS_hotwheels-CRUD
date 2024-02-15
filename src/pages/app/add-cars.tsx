@@ -1,8 +1,22 @@
 import { Helmet } from 'react-helmet-async'
+import { toast } from 'sonner'
 
-import { CarForm } from '@/components/car-form'
+import { CarForm, CarFormSchema } from '@/components/car-form'
 
 export function AddCars() {
+  // ADICIONNANDO UM REGISTRO
+  async function handleAddCar(data: CarFormSchema) {
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000))
+
+      console.log(data)
+
+      toast.success('Carro adicionar com sucesso!')
+    } catch {
+      toast.error('Não foi possível cadastrar.')
+    }
+  }
+
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col items-center space-y-5 py-12">
       <Helmet title="Adicionar carros" />
@@ -16,7 +30,7 @@ export function AddCars() {
         </p>
       </div>
 
-      <CarForm />
+      <CarForm handleAddCar={handleAddCar} />
     </div>
   )
 }

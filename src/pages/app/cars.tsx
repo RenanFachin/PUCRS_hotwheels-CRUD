@@ -1,10 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
+import { toast } from 'sonner'
 
 import { CarDetail } from '@/components/car-detail'
-import { CarForm } from '@/components/car-form'
+import { CarForm, CarFormSchema } from '@/components/car-form'
 import { CarList } from '@/components/car-list'
 import { CARS } from '@/utils/carsData'
+
+function getRandomInt(min, max) {
+  // Use Math.floor para arredondar para o menor número inteiro
+  // Use Math.random() para gerar um número decimal no intervalo [0, 1)
+  // Multiplique pela diferença entre max e min e adicione min para ajustar o intervalo
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
 
 interface Car {
   brand: string
@@ -19,14 +27,44 @@ export interface CarsProps {
 
 export function Cars() {
   const [cars, setCars] = useState<Car[]>(CARS)
-  console.log(cars)
+  // console.log(cars)
+  // console.log(CARS)
 
-  function handleDeleteCar(id: number) {
+  // DELETANDO UM REGISTRO
+  async function handleDeleteCar(id: number) {
+    await new Promise((resolve) => setTimeout(resolve, 300)) // Simulando uma chamada para API
+
     const carsArray = cars.filter((car) => {
       return car.id !== id
     })
 
     setCars(carsArray)
+    toast.success('Carro apagado com sucesso!')
+  }
+
+  // ADICIONNANDO UM REGISTRO
+  async function handleAddCar(data: CarFormSchema) {
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 800)) // Simulando uma chamada para API
+
+      const newCar = {
+        id: getRandomInt(100, 1000),
+        name: data.carName,
+        year: data.carYear,
+        brand: data.carBrand,
+        color: data.carColor,
+      }
+
+      // console.log(newCar)
+
+      const carsArray = [...cars, newCar]
+
+      setCars(carsArray)
+
+      toast.success('Carro adicionar com sucesso!')
+    } catch {
+      toast.error('Não foi possível cadastrar.')
+    }
   }
 
   return (
@@ -43,19 +81,31 @@ export function Cars() {
             Formulário para adição de carro ao sistema.
           </p>
         </div>
-        <CarForm />
+        <CarForm handleAddCar={handleAddCar} />
       </div>
 
       <CarList>
-        {cars.map((car) => {
-          return (
-            <CarDetail
-              key={car.id}
-              car={car}
-              handleDeleteCar={handleDeleteCar}
-            />
-          )
-        })}
+        {/* LEMBRAR DE UTILIZAR O CAR DO STATE PARA PERCORRER COM MAP */}
+        {cars.length > 0 ? (
+          cars.map((car) => {
+            return (
+              <CarDetail
+                key={car.id}
+                car={car}
+                handleDeleteCar={handleDeleteCar}
+              />
+            )
+          })
+        ) : (
+          <div className="col-span-3 mx-auto">
+            <h2 className="text-center text-3xl font-bold">
+              Lista de carro vazia!
+            </h2>
+            <p className="text-primary-400">
+              Parece que você não tem nenhum carro cadastrado até o momento
+            </p>
+          </div>
+        )}
       </CarList>
     </div>
   )

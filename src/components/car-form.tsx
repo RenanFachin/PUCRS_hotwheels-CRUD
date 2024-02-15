@@ -11,15 +11,16 @@ const carFormSchema = z.object({
   carName: z.string().min(1, 'O nome do carro é obrigatório').toLowerCase(),
   carBrand: z.string().min(1, 'A marca do carro é obrigatório').toLowerCase(),
   carColor: z.string().min(1, 'A cor do carro é obrigatório').toLowerCase(),
-  carYear: z.coerce.number({
-    required_error: 'O ano do carro é obrigatório',
-    invalid_type_error: 'O ano do carro precisa ser um número',
-  }),
+  carYear: z.string().min(1, 'O ano do carro é obrigatório'),
 })
 
-type CarFormSchema = z.infer<typeof carFormSchema>
+export type CarFormSchema = z.infer<typeof carFormSchema>
 
-export function CarForm() {
+interface CarFormProps {
+  handleAddCar: (data: CarFormSchema) => void
+}
+
+export function CarForm({ handleAddCar }: CarFormProps) {
   const {
     register,
     handleSubmit,
@@ -31,22 +32,9 @@ export function CarForm() {
       carBrand: '',
       carColor: '',
       carName: '',
-      carYear: 0,
+      carYear: '',
     },
   })
-
-  async function handleAddNewCar(data: CarFormSchema) {
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 2000))
-      console.log(data)
-
-      toast.success('Carro adicionar com sucesso!')
-
-      reset()
-    } catch {
-      toast.error('Não foi possível cadastrar.')
-    }
-  }
 
   function handleResetInputs() {
     reset()
@@ -55,7 +43,7 @@ export function CarForm() {
   return (
     <form
       className="flex  min-w-96 flex-col items-center gap-4 rounded-md border px-6 py-10 shadow-md"
-      onSubmit={handleSubmit(handleAddNewCar)}
+      onSubmit={handleSubmit((data) => handleAddCar(data))}
     >
       <div className="flex w-full flex-col space-y-2">
         <label htmlFor="carName" className="text-xs font-bold">
@@ -121,14 +109,21 @@ export function CarForm() {
         )}
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex w-full items-center justify-center gap-4">
         {isSubmitting ? (
-          <Button variant="secondary" type="submit" disabled={isSubmitting}>
-            <Button.Icon>
-              <Loader className="size-4 animate-spin" />
-            </Button.Icon>
-            <Button.Text>Cadastrando</Button.Text>
-          </Button>
+          <div className="w-full">
+            <Button
+              variant="primary"
+              type="submit"
+              disabled={isSubmitting}
+              style={{ width: '100%' }}
+            >
+              <Button.Icon>
+                <Loader className="size-4 animate-spin" />
+              </Button.Icon>
+              <Button.Text>Cadastrando</Button.Text>
+            </Button>
+          </div>
         ) : (
           <>
             <Button variant="secondary" type="submit" disabled={isSubmitting}>

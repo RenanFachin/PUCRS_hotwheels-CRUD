@@ -21,12 +21,12 @@ export function CarDetail({ car, handleDeleteCar }: CarDetailProps) {
 
       <div className="mb-6 mt-10 space-y-1">
         <div className="flex items-center justify-between gap-3">
-          <span className="text-sm">Marca:</span>
+          <span className="text-sm text-primary-400">Marca:</span>
           <h3 className="text-sm font-bold">{car.brand}</h3>
         </div>
 
         <div className="flex items-center justify-between gap-3">
-          <span className="text-sm">Cor:</span>
+          <span className="text-sm text-primary-400">Cor:</span>
           <h3 className="text-sm font-bold">{car.color}</h3>
         </div>
       </div>

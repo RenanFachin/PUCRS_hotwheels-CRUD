@@ -12,7 +12,9 @@ export function Home() {
         🚀 Página inicial
       </span>
 
-      <p className="text-3xl font-bold">Bem-vindo ao CRUD de HotWheels!</p>
+      <p className="text-3xl font-bold leading-tight tracking-tighter">
+        Bem-vindo ao CRUD de HotWheels!
+      </p>
 
       <p className="max-w-md text-center text-primary-500">
         Aplicação construída para a cadeira de desenvolvimento de sistemas
