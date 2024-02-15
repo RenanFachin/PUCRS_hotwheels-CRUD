@@ -5,8 +5,8 @@ import { NavLink } from './nav-link'
 export function Navbar() {
   return (
     <div className="border-b">
-      <div className="flex h-16 items-center gap-10 px-6">
-        <Car className="text-primary-900 size-7" />
+      <div className="flex h-16 items-center gap-10 px-8">
+        <Car className="size-7 text-primary-900" />
 
         <hr className="h-9 border-l border-slate-300" />
 
@@ -21,16 +21,18 @@ export function Navbar() {
             Carros
           </NavLink>
 
-          <NavLink to="/add-cars">
-            <Plus className="size-4" />
-            Adicionar
-          </NavLink>
-
           <NavLink to="/about">
             <LayoutGrid className="size-4" />
             Sobre
           </NavLink>
         </nav>
+
+        <div className="ml-auto flex items-center gap-2">
+          <NavLink to="/add-cars">
+            <Plus className="size-4" />
+            Adicionar
+          </NavLink>
+        </div>
       </div>
     </div>
   )

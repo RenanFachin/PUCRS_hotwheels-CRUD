@@ -8,7 +8,7 @@ export function Home() {
     <div className="mx-auto flex w-full max-w-5xl flex-col items-center space-y-5 py-12">
       <Helmet title="Home" />
       <span className="rounded-lg bg-primary-300/30 px-3 py-2 text-sm font-bold">
-        Página inicial
+        🚀 Página inicial
       </span>
 
       <p className="text-3xl font-bold">Bem-vindo ao CRUD de HotWheels!</p>
