@@ -1,4 +1,5 @@
-import { useState } from 'react'
+/* eslint-disable prettier/prettier */
+import { ChangeEvent, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { toast } from 'sonner'
 
@@ -25,6 +26,8 @@ export interface CarsProps {
 
 export function Cars() {
   const [cars, setCars] = useState<Car[]>(CARS)
+  const [search, setSearch] = useState('')
+
   // console.log(cars)
   // console.log(CARS)
 
@@ -66,13 +69,28 @@ export function Cars() {
     }
   }
 
+  // BUSCANDO REGISTROS
+  function handleSearch(event: ChangeEvent<HTMLInputElement>) {
+    const query = event.target.value
+
+    setSearch(query)
+  }
+
+  // Caso exista algo no estado search, fazer uma busca em cars para verificar se inclui dentro a search pesquisada
+  const filteredCars =
+    search !== ''
+      ? cars.filter((car) =>
+        car.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()),
+      )
+      : cars
+
   return (
     <div className="grid w-full flex-1 grid-cols-custom flex-col items-center py-12">
       <Helmet title="Sobre" />
 
       <div className="flex h-full flex-col items-center justify-center space-y-5 border-r-2 border-r-primary-200/50">
         <div className="flex flex-col items-center">
-          <h1 className="flex items-center rounded-lg px-3 py-2 text-2xl font-bold">
+          <h1 className="flex items-center rounded-lg px-3 py-2 text-2xl font-bold tracking-tight">
             Adicionar carro
           </h1>
 
@@ -83,29 +101,40 @@ export function Cars() {
         <CarForm handleAddCar={handleAddCar} />
       </div>
 
-      <CarList>
-        {/* LEMBRAR DE UTILIZAR O CAR DO STATE PARA PERCORRER COM MAP */}
-        {cars.length > 0 ? (
-          cars.map((car) => {
-            return (
-              <CarDetail
-                key={car.id}
-                car={car}
-                handleDeleteCar={handleDeleteCar}
-              />
-            )
-          })
-        ) : (
-          <div className="col-span-3 mx-auto">
-            <h2 className="text-center text-3xl font-bold">
-              Lista de carro vazia!
-            </h2>
-            <p className="text-primary-400">
-              Parece que você não tem nenhum carro cadastrado até o momento
-            </p>
-          </div>
-        )}
-      </CarList>
+      <div className="px-32">
+        <form className="mb-10">
+          <input
+            type="text"
+            className="w-full border-b-2 bg-transparent text-2xl font-semibold tracking-tight outline-none placeholder:text-primary-600"
+            placeholder="Busque seus carros cadastrados"
+            onChange={handleSearch}
+          />
+        </form>
+
+        <CarList>
+          {/* LEMBRAR DE UTILIZAR O CAR DO STATE PARA PERCORRER COM MAP */}
+          {cars.length > 0 ? (
+            filteredCars.map((car) => {
+              return (
+                <CarDetail
+                  key={car.id}
+                  car={car}
+                  handleDeleteCar={handleDeleteCar}
+                />
+              )
+            })
+          ) : (
+            <div className="col-span-3 mx-auto">
+              <h2 className="text-center text-3xl font-bold">
+                Lista de carro vazia!
+              </h2>
+              <p className="text-primary-400">
+                Parece que você não tem nenhum carro cadastrado até o momento
+              </p>
+            </div>
+          )}
+        </CarList>
+      </div>
     </div>
   )
 }

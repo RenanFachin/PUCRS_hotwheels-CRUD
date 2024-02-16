@@ -12,7 +12,7 @@ interface CarDetailProps extends CarsProps {
 export function CarDetail({ car, handleDeleteCar }: CarDetailProps) {
   return (
     <Dialog.Root>
-      <div className="flex w-full flex-col rounded-md border p-5 shadow-md">
+      <div className="m-2 flex max-h-[220px] flex-col rounded-md border p-5 shadow-md hover:ring-2 hover:ring-yellow-500/40">
         <div className="flex w-full items-center justify-between gap-3">
           <h1 className="font-bold">{car.name}</h1>
 
@@ -33,7 +33,7 @@ export function CarDetail({ car, handleDeleteCar }: CarDetailProps) {
           </div>
         </div>
 
-        <Dialog.Trigger>
+        <Dialog.Trigger className="outline-none">
           <Button variant="primary" type="button" style={{ width: '100%' }}>
             <Button.Icon>
               <Eye className="size-3" />
