@@ -23,6 +23,7 @@ interface CarsContextType {
   handleAddCar: (data: CarFormSchema) => void
   handleSearch: (event: ChangeEvent<HTMLInputElement>) => void
   handleDeleteCar: (id: number) => void
+  handleUpdateCar: (updatedCar: Car) => void
 }
 
 export const CarsContext = createContext({} as CarsContextType)
@@ -82,9 +83,23 @@ export function CarsContextProvider({ children }: CarsContextProviderProps) {
     toast.success('Carro apagado com sucesso!')
   }
 
+  function handleUpdateCar(updatedCar: Car) {
+    const updatedCars = cars.map((car) =>
+      car.id === updatedCar.id ? updatedCar : car,
+    )
+    setCars(updatedCars)
+  }
+
   return (
     <CarsContext.Provider
-      value={{ cars, search, handleSearch, handleDeleteCar, handleAddCar }}
+      value={{
+        cars,
+        search,
+        handleSearch,
+        handleDeleteCar,
+        handleAddCar,
+        handleUpdateCar,
+      }}
     >
       {children}
     </CarsContext.Provider>

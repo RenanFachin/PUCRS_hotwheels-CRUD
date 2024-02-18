@@ -1,15 +1,50 @@
 import * as Dialog from '@radix-ui/react-dialog'
-import { Eye, Pencil, Trash, X } from 'lucide-react'
+import { BadgeCheck, Eye, Pencil, Trash, X } from 'lucide-react'
+import { useContext, useState } from 'react'
+import { toast } from 'sonner'
 
-import { CarsProps } from '@/contexts/carsContext'
+import { CarsContext, CarsProps } from '@/contexts/carsContext'
 
 import { Button } from './button'
 
-interface CarDetailProps extends CarsProps {
-  handleDeleteCar: (id: number) => void
-}
+interface CarDetailProps extends CarsProps {}
 
-export function CarDetail({ car, handleDeleteCar }: CarDetailProps) {
+export function CarDetail({ car }: CarDetailProps) {
+  const { handleDeleteCar, handleUpdateCar } = useContext(CarsContext)
+
+  const [isEditing, setIsEditing] = useState(false)
+
+  const [editedBrand, setEditedBrand] = useState(car.brand)
+  const [editedColor, setEditedColor] = useState(car.color)
+
+  function handleUserEditCardInfo() {
+    setIsEditing(true)
+  }
+
+  function handleSaveEdit() {
+    handleUpdateCar({
+      ...car,
+      brand: editedBrand,
+      color: editedColor,
+    })
+
+    setIsEditing(false)
+    toast.success('Informações alteradas com sucesso!')
+  }
+
+  function handleDiscartEdit() {
+    setIsEditing(false)
+    toast.info('Você cancelou a edição das informações do carro.')
+  }
+
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    if (event.target.name === 'brand') {
+      setEditedBrand(event.target.value)
+    } else if (event.target.name === 'color') {
+      setEditedColor(event.target.value)
+    }
+  }
+
   return (
     <Dialog.Root>
       <div className="m-2 flex max-h-[220px] flex-col rounded-md border p-5 shadow-md hover:ring-2 hover:ring-yellow-500/40">
@@ -60,34 +95,86 @@ export function CarDetail({ car, handleDeleteCar }: CarDetailProps) {
               </div>
 
               <div className="mb-6 mt-10 w-full space-y-1">
-                <div className="flex items-center justify-between gap-3">
-                  <span className="text-sm text-primary-400">Marca:</span>
-                  <h3 className="text-sm font-bold">{car.brand}</h3>
-                </div>
+                {isEditing ? (
+                  <form className="flex flex-col gap-2">
+                    <div className="flex items-center justify-between gap-3">
+                      <label className="text-sm text-primary-400">Marca:</label>
+                      <input
+                        type="text"
+                        name="brand"
+                        value={editedBrand}
+                        onChange={handleInputChange}
+                        className="border-input focus-within: flex h-10 w-full max-w-40 rounded-md border bg-primary-300/20 px-3 py-2 text-right text-sm font-bold outline-none placeholder:text-primary-300 focus-within:ring-2 focus-within:ring-primary-800 focus-within:ring-offset-2"
+                      />
+                    </div>
 
-                <div className="flex items-center justify-between gap-3">
-                  <span className="text-sm text-primary-400">Cor:</span>
-                  <h3 className="text-sm font-bold">{car.color}</h3>
-                </div>
+                    <div className="flex items-center justify-between gap-3">
+                      <label className="text-sm text-primary-400">Cor:</label>
+                      <input
+                        type="text"
+                        name="color"
+                        value={editedColor}
+                        onChange={handleInputChange}
+                        className="border-input focus-within: flex h-10 w-full max-w-40 rounded-md border bg-primary-300/20 px-3 py-2 text-right text-sm font-bold outline-none placeholder:text-primary-300 focus-within:ring-2 focus-within:ring-primary-800 focus-within:ring-offset-2"
+                      />
+                    </div>
+
+                    <div className="flex justify-end gap-3">
+                      <button
+                        className="group flex h-[42px] items-center justify-center gap-2 rounded-md border border-green-400 bg-green-100 px-3 py-3 text-green-700 shadow-sm hover:border-white hover:bg-green-400 hover:text-white disabled:cursor-not-allowed"
+                        onClick={handleSaveEdit}
+                      >
+                        Salvar
+                        <BadgeCheck className="size-3 " />
+                      </button>
+
+                      <button
+                        className="group flex h-[42px] items-center justify-center gap-2 rounded-md border border-red-400 bg-red-100 px-3 py-3 text-red-700 shadow-sm hover:border-white hover:bg-red-400 hover:text-white disabled:cursor-not-allowed"
+                        onClick={handleDiscartEdit}
+                      >
+                        Descartar
+                        <Trash className="size-3 " />
+                      </button>
+                    </div>
+                  </form>
+                ) : (
+                  <>
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="text-sm text-primary-400">Marca:</span>
+                      <h3 className="text-sm font-bold">{car.brand}</h3>
+                    </div>
+
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="text-sm text-primary-400">Cor:</span>
+                      <h3 className="text-sm font-bold">{car.color}</h3>
+                    </div>
+                  </>
+                )}
               </div>
 
               <div className="flex items-center gap-2">
-                <Button
-                  variant="primary"
-                  type="button"
-                  onClick={() => handleDeleteCar(car.id)}
-                  style={{ flex: 1 }}
-                >
-                  <Button.Icon>
-                    <Trash className="size-3" />
-                  </Button.Icon>
+                {!isEditing && (
+                  <>
+                    <Button
+                      variant="primary"
+                      type="button"
+                      onClick={() => handleDeleteCar(car.id)}
+                      style={{ flex: 1 }}
+                    >
+                      <Button.Icon>
+                        <Trash className="size-3" />
+                      </Button.Icon>
 
-                  <Button.Text>Deletar</Button.Text>
-                </Button>
-
-                <button className="group flex h-[42px] items-center justify-center gap-2 rounded-md border px-3 py-3 shadow-sm disabled:cursor-not-allowed">
-                  <Pencil className="size-3" />
-                </button>
+                      <Button.Text>Deletar</Button.Text>
+                    </Button>
+                    <button
+                      className="group flex h-[42px] items-center justify-center gap-2 rounded-md border px-3 py-3 shadow-sm disabled:cursor-not-allowed"
+                      onClick={handleUserEditCardInfo}
+                    >
+                      <Pencil className="size-3" />
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           </Dialog.Content>
