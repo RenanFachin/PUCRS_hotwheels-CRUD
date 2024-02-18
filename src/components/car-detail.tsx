@@ -1,7 +1,7 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { Eye, Pencil, Trash, X } from 'lucide-react'
 
-import { CarsProps } from '@/pages/app/cars'
+import { CarsProps } from '@/contexts/carsContext'
 
 import { Button } from './button'
 

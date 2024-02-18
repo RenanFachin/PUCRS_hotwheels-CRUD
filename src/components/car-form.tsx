@@ -1,8 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Loader, Plus, Trash } from 'lucide-react'
+import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
 import { z } from 'zod'
+
+import { CarsContext } from '@/contexts/carsContext'
 
 import { Button } from './button'
 
@@ -16,11 +18,9 @@ const carFormSchema = z.object({
 
 export type CarFormSchema = z.infer<typeof carFormSchema>
 
-interface CarFormProps {
-  handleAddCar: (data: CarFormSchema) => void
-}
+export function CarForm() {
+  const { handleAddCar } = useContext(CarsContext)
 
-export function CarForm({ handleAddCar }: CarFormProps) {
   const {
     register,
     handleSubmit,

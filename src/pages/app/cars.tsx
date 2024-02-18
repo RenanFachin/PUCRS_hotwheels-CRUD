@@ -1,82 +1,16 @@
 /* eslint-disable prettier/prettier */
-import { ChangeEvent, useState } from 'react'
+import { useContext} from 'react'
 import { Helmet } from 'react-helmet-async'
-import { toast } from 'sonner'
 
 import { CarDetail } from '@/components/car-detail'
-import { CarForm, CarFormSchema } from '@/components/car-form'
+import { CarForm } from '@/components/car-form'
 import { CarList } from '@/components/car-list'
-import { CARS } from '@/utils/carsData'
+import { CarsContext } from '@/contexts/carsContext'
 
-// Criando um ID aleatório
-function getRandomInt(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1)) + min
-}
-
-interface Car {
-  brand: string
-  color: string
-  id: number
-  name: string
-  year: string
-}
-export interface CarsProps {
-  car: Car
-}
 
 export function Cars() {
-  const [cars, setCars] = useState<Car[]>(CARS)
-  const [search, setSearch] = useState('')
+  const { handleSearch, handleDeleteCar, cars, search } = useContext(CarsContext)
 
-  // console.log(cars)
-  // console.log(CARS)
-
-  // DELETANDO UM REGISTRO
-  async function handleDeleteCar(id: number) {
-    await new Promise((resolve) => setTimeout(resolve, 300)) // Simulando uma chamada para API
-
-    const carsArray = cars.filter((car) => {
-      return car.id !== id
-    })
-
-    setCars(carsArray)
-    toast.success('Carro apagado com sucesso!')
-  }
-
-  // ADICIONNANDO UM REGISTRO
-  async function handleAddCar(data: CarFormSchema) {
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 800)) // Simulando uma chamada para API
-
-      const newCar = {
-        id: getRandomInt(6, 10000),
-        name: data.carName,
-        year: data.carYear,
-        brand: data.carBrand,
-        color: data.carColor,
-      }
-
-      // console.log(newCar)
-
-      const carsArray = [...cars, newCar]
-
-      setCars(carsArray)
-      console.log(cars)
-
-      toast.success('Carro adicionar com sucesso!')
-    } catch {
-      toast.error('Não foi possível cadastrar.')
-    }
-  }
-
-  // BUSCANDO REGISTROS
-  function handleSearch(event: ChangeEvent<HTMLInputElement>) {
-    const query = event.target.value
-
-    setSearch(query)
-  }
-
-  // Caso exista algo no estado search, fazer uma busca em cars para verificar se inclui dentro a search pesquisada
   const filteredCars =
     search !== ''
       ? cars.filter((car) =>
@@ -98,7 +32,7 @@ export function Cars() {
             Formulário para adição de carro ao sistema.
           </p>
         </div>
-        <CarForm handleAddCar={handleAddCar} />
+        <CarForm />
       </div>
 
       <div className="px-32">
