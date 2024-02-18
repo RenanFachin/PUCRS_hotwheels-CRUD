@@ -7,7 +7,7 @@ import { CarsContext, CarsProps } from '@/contexts/carsContext'
 
 import { Button } from './button'
 
-interface CarDetailProps extends CarsProps {}
+interface CarDetailProps extends CarsProps { }
 
 export function CarDetail({ car }: CarDetailProps) {
   const { handleDeleteCar, handleUpdateCar } = useContext(CarsContext)
@@ -98,25 +98,29 @@ export function CarDetail({ car }: CarDetailProps) {
                 {isEditing ? (
                   <form className="flex flex-col gap-2">
                     <div className="flex items-center justify-between gap-3">
-                      <label className="text-sm text-primary-400">Marca:</label>
-                      <input
-                        type="text"
-                        name="brand"
-                        value={editedBrand}
-                        onChange={handleInputChange}
-                        className="border-input focus-within: flex h-10 w-full max-w-40 rounded-md border bg-primary-300/20 px-3 py-2 text-right text-sm font-bold outline-none placeholder:text-primary-300 focus-within:ring-2 focus-within:ring-primary-800 focus-within:ring-offset-2"
-                      />
+                      <label className="flex flex-1 items-center justify-between gap-3 text-sm text-primary-400">
+                        Marca:
+                        <input
+                          type="text"
+                          name="brand"
+                          value={editedBrand}
+                          onChange={handleInputChange}
+                          className="border-input focus-within: flex h-10 w-full max-w-40 rounded-md border bg-primary-300/20 px-3 py-2 text-right text-sm font-bold outline-none placeholder:text-primary-300 focus-within:ring-2 focus-within:ring-primary-800 focus-within:ring-offset-2"
+                        />
+                      </label>
                     </div>
 
                     <div className="flex items-center justify-between gap-3">
-                      <label className="text-sm text-primary-400">Cor:</label>
-                      <input
-                        type="text"
-                        name="color"
-                        value={editedColor}
-                        onChange={handleInputChange}
-                        className="border-input focus-within: flex h-10 w-full max-w-40 rounded-md border bg-primary-300/20 px-3 py-2 text-right text-sm font-bold outline-none placeholder:text-primary-300 focus-within:ring-2 focus-within:ring-primary-800 focus-within:ring-offset-2"
-                      />
+                      <label className="flex flex-1 items-center justify-between gap-3 text-sm text-primary-400">
+                        Cor:
+                        <input
+                          type="text"
+                          name="color"
+                          value={editedColor}
+                          onChange={handleInputChange}
+                          className="border-input focus-within: flex h-10 w-full max-w-40 rounded-md border bg-primary-300/20 px-3 py-2 text-right text-sm font-bold outline-none placeholder:text-primary-300 focus-within:ring-2 focus-within:ring-primary-800 focus-within:ring-offset-2"
+                        />
+                      </label>
                     </div>
 
                     <div className="flex justify-end gap-3">
