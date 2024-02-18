@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { useContext} from 'react'
+import { useContext } from 'react'
 import { Helmet } from 'react-helmet-async'
 
 import { CarDetail } from '@/components/car-detail'
@@ -14,7 +14,7 @@ export function Cars() {
   const filteredCars =
     search !== ''
       ? cars.filter((car) =>
-        car.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()),
+        car.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()) || car.color.toLocaleLowerCase().includes(search.toLocaleLowerCase()) || car.brand.toLocaleLowerCase().includes(search.toLocaleLowerCase()),
       )
       : cars
 
