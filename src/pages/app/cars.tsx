@@ -9,7 +9,7 @@ import { CarsContext } from '@/contexts/carsContext'
 
 
 export function Cars() {
-  const { handleSearch, handleDeleteCar, cars, search } = useContext(CarsContext)
+  const { handleSearch, cars, search } = useContext(CarsContext)
 
   const filteredCars =
     search !== ''
@@ -53,7 +53,6 @@ export function Cars() {
                 <CarDetail
                   key={car.id}
                   car={car}
-                  handleDeleteCar={handleDeleteCar}
                 />
               )
             })
