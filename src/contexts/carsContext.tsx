@@ -43,7 +43,7 @@ export function CarsContextProvider({ children }: CarsContextProviderProps) {
   // ADICIONNANDO UM REGISTRO
   async function handleAddCar(data: CarFormSchema) {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 800)) // Simulando uma chamada para API
+      await new Promise((resolve) => setTimeout(resolve, 500)) // Simulando uma chamada para API
 
       const newCar = {
         id: getRandomInt(6, 10000),
@@ -73,7 +73,7 @@ export function CarsContextProvider({ children }: CarsContextProviderProps) {
   }
 
   async function handleDeleteCar(id: number) {
-    await new Promise((resolve) => setTimeout(resolve, 300)) // Simulando uma chamada para API
+    await new Promise((resolve) => setTimeout(resolve, 200)) // Simulando uma chamada para API
 
     const carsArray = cars.filter((car) => {
       return car.id !== id
