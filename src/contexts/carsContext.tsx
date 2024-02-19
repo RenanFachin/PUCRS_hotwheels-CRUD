@@ -36,17 +36,13 @@ export function CarsContextProvider({ children }: CarsContextProviderProps) {
   const [cars, setCars] = useState<Car[]>(CARS)
   const [search, setSearch] = useState('')
 
-  function getRandomInt(min: number, max: number) {
-    return Math.floor(Math.random() * (max - min + 1)) + min
-  }
-
   // ADICIONNANDO UM REGISTRO
   async function handleAddCar(data: CarFormSchema) {
     try {
       await new Promise((resolve) => setTimeout(resolve, 500)) // Simulando uma chamada para API
 
       const newCar = {
-        id: getRandomInt(6, 10000),
+        id: new Date().valueOf(),
         name: data.carName,
         year: data.carYear,
         brand: data.carBrand,
