@@ -58,7 +58,7 @@ export function CarsContextProvider({ children }: CarsContextProviderProps) {
       const carsArray = [...cars, newCar]
 
       setCars(carsArray)
-      console.log(cars)
+      // console.log(cars)
 
       toast.success('Carro adicionar com sucesso!')
     } catch {
