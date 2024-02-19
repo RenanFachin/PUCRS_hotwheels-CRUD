@@ -1,5 +1,4 @@
 import * as Dialog from '@radix-ui/react-dialog'
-import * as Tooltip from '@radix-ui/react-tooltip'
 import { Plus, X } from 'lucide-react'
 
 import { CarForm } from './car-form'

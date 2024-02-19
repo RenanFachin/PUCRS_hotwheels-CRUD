@@ -10,7 +10,7 @@ export function Navbar() {
 
         <hr className="h-9 border-l border-slate-300" />
 
-        <nav className="flex items-center space-x-4">
+        <nav className="flex items-center space-x-8">
           <NavLink to="/">
             <Home className="size-4" />
             Home
