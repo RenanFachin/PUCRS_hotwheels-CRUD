@@ -5,7 +5,7 @@ export function GithubWidget() {
     <Link
       to="https://github.com/RenanFachin"
       target="_blank"
-      className="fixed bottom-10 right-10 rounded-full border border-primary-600/40 p-5 shadow-sm transition-all hover:scale-110 hover:border-primary-900"
+      className="rounded-full border border-primary-600/40 p-5 shadow-sm transition-all hover:scale-110 hover:border-primary-900"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

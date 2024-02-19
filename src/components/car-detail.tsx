@@ -8,7 +8,7 @@ import { CarsContext, CarsProps } from '@/contexts/carsContext'
 import { AlertDialogButton } from './alert-dialog-button'
 import { Button } from './button'
 
-interface CarDetailProps extends CarsProps { }
+interface CarDetailProps extends CarsProps {}
 
 export function CarDetail({ car }: CarDetailProps) {
   const { handleDeleteCar, handleUpdateCar } = useContext(CarsContext)
@@ -80,13 +80,6 @@ export function CarDetail({ car }: CarDetailProps) {
             </Button>
           </Dialog.Trigger>
 
-          {/* <button
-            type="button"
-            onClick={() => handleDeleteCar(car.id)}
-            className="group flex h-[42px] items-center justify-center gap-2 rounded-md border border-highlight-300 bg-red-200/20 px-3 py-3 text-highlight-500 opacity-55 shadow-sm hover:border-white hover:bg-highlight-500 hover:text-white hover:opacity-100 disabled:cursor-not-allowed"
-          >
-            <Trash className="size-4" />
-          </button> */}
           <AlertDialogButton car={car} />
         </div>
 
