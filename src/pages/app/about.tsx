@@ -4,15 +4,15 @@ import { Task } from '@/components/task'
 
 export function About() {
   return (
-    <div className="grid w-full flex-1 grid-cols-2 flex-col items-center py-12">
+    <div className="flex w-full flex-1 grid-cols-2 flex-col items-center gap-14 py-12 md:grid md:gap-0">
       <Helmet title="Sobre" />
 
-      <div className="flex h-full flex-col items-center justify-center space-y-5 border-r ">
+      <div className="flex h-full flex-col items-center justify-center space-y-5 md:border-r">
         <span className="rounded-lg bg-primary-300/30 px-3 py-2 text-sm font-bold">
           💡 Sobre
         </span>
 
-        <p className="text-3xl font-bold">CRUD de HotWheels!</p>
+        <p className="text-center text-3xl font-bold">CRUD de HotWheels!</p>
 
         <p className="max-w-md text-center text-primary-500">
           Aplicação construída para a cadeira de desenvolvimento de sistemas

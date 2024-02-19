@@ -14,7 +14,7 @@ export function AppLayout() {
         <Outlet />
       </div>
 
-      <div className="fixed bottom-10 right-10 flex flex-col gap-4">
+      <div className="fixed bottom-10 right-10 hidden flex-col gap-4 md:flex">
         <AddCarWidget />
         <GithubWidget />
       </div>

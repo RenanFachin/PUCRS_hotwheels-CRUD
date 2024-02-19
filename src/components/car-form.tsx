@@ -42,7 +42,7 @@ export function CarForm() {
 
   return (
     <form
-      className="flex  min-w-96 flex-col items-center gap-4 rounded-md border px-6 py-10 shadow-md"
+      className="flex flex-col items-center gap-4 rounded-md border px-6 py-10 shadow-md md:min-w-96"
       onSubmit={handleSubmit((data) => handleAddCar(data))}
     >
       <div className="flex w-full flex-col space-y-2">

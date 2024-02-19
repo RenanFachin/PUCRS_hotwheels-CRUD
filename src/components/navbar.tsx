@@ -5,10 +5,10 @@ import { NavLink } from './nav-link'
 export function Navbar() {
   return (
     <div className="border-b">
-      <div className="flex h-16 items-center gap-10 px-8">
-        <Car className="size-7 text-primary-900" />
+      <div className="flex h-16 items-center gap-3 px-2 md:gap-10 md:px-8">
+        <Car className="hidden size-7 text-primary-900 md:block" />
 
-        <hr className="h-9 border-l border-slate-300" />
+        <hr className="hidden h-9 border-l border-slate-300 md:block" />
 
         <nav className="flex items-center space-x-8">
           <NavLink to="/">

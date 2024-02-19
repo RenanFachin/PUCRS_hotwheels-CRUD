@@ -19,10 +19,10 @@ export function Cars() {
       : cars
 
   return (
-    <div className="grid w-full flex-1 grid-cols-custom flex-col items-center py-12">
+    <div className="flex md:grid w-full flex-1 grid-cols-custom flex-col items-center py-12">
       <Helmet title="Sobre" />
 
-      <div className="flex h-full flex-col items-center justify-center space-y-5 border-r-2 border-r-primary-200/50">
+      <div className="flex h-full flex-col items-center justify-center space-y-5 md:border-r-2 border-r-primary-200/50">
         <div className="flex flex-col items-center">
           <h1 className="flex items-center rounded-lg px-3 py-2 text-2xl font-bold tracking-tight">
             Adicionar carro
@@ -35,11 +35,11 @@ export function Cars() {
         <CarForm />
       </div>
 
-      <div className="px-32">
+      <div className="md:px-32 w-full mt-20 md:mt-0">
         <form className="mb-10">
           <input
             type="text"
-            className="w-full border-b-2 bg-transparent text-2xl font-semibold tracking-tight outline-none placeholder:text-primary-600"
+            className="w-full border-b-2 bg-transparent md:text-2xl font-semibold tracking-tight outline-none placeholder:text-primary-600"
             placeholder="Busque seus carros cadastrados"
             onChange={handleSearch}
           />
