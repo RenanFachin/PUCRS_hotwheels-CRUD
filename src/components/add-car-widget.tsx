@@ -9,6 +9,7 @@ export function AddCarWidget() {
       <Dialog.Trigger asChild>
         <button className="hover:highlight-500 group  rounded-full border border-highlight-300 p-5 text-highlight-500 shadow-sm transition-all hover:scale-110">
           <Plus className="size-6 group-hover:scale-110" />
+          <span className="sr-only">Adicionar carro</span>
         </button>
       </Dialog.Trigger>
 

@@ -17,6 +17,7 @@ export function AlertDialogButton({ car }: AlertDialogButtonProps) {
           className="group flex h-[42px] items-center justify-center gap-2 rounded-md border border-highlight-300 bg-red-200/20 px-3 py-3 text-highlight-500 opacity-55 shadow-sm outline-none hover:border-white hover:bg-highlight-500 hover:text-white hover:opacity-100 focus-visible:ring-1 focus-visible:ring-highlight-500 disabled:cursor-not-allowed"
         >
           <Trash className="size-4" />
+          <span className="sr-only">Deletar</span>
         </button>
       </AlertDialog.Trigger>
 
@@ -37,6 +38,7 @@ export function AlertDialogButton({ car }: AlertDialogButtonProps) {
             <AlertDialog.Cancel asChild>
               <button className="group flex items-center justify-center gap-2 rounded-md border px-3 py-2 shadow-sm outline-none focus-within:ring-2 focus-within:ring-primary-900/40 disabled:cursor-not-allowed">
                 Cancelar
+                <span className="sr-only">Cancelar</span>
               </button>
             </AlertDialog.Cancel>
 
@@ -46,6 +48,7 @@ export function AlertDialogButton({ car }: AlertDialogButtonProps) {
                 onClick={() => handleDeleteCar(car.id)}
               >
                 Deletar
+                <span className="sr-only">Confirmação do deletar</span>
               </button>
             </AlertDialog.Cancel>
           </div>

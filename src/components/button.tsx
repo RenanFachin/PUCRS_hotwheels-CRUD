@@ -16,10 +16,10 @@ const buttonStyle = tv({
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode
-  variant: 'primary' | 'secondary'
+  variant?: 'primary' | 'secondary'
 }
 
-function Button({ children, variant, ...props }: ButtonProps) {
+function Button({ children, variant = 'primary', ...props }: ButtonProps) {
   return (
     <button className={buttonStyle({ color: variant })} {...props}>
       {children}
