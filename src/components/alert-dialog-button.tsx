@@ -4,7 +4,7 @@ import { useContext } from 'react'
 
 import { CarsContext, CarsProps } from '@/contexts/carsContext'
 
-interface AlertDialogButtonProps extends CarsProps { }
+interface AlertDialogButtonProps extends CarsProps {}
 
 export function AlertDialogButton({ car }: AlertDialogButtonProps) {
   const { handleDeleteCar } = useContext(CarsContext)

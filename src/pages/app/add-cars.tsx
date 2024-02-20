@@ -30,7 +30,7 @@ export function AddCars() {
         </p>
       </div>
 
-      <CarForm handleAddCar={handleAddCar} />
+      <CarForm />
     </div>
   )
 }

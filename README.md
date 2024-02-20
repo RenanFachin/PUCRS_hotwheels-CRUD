@@ -62,9 +62,6 @@ npm run dev
 ```
 
 Acesse o caminho fornecido pelo prompt de comando
-```bash
-http://localhost:5174/
-```
 
 ## Autor
 
