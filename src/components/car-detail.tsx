@@ -130,7 +130,7 @@ export function CarDetail({ car }: CarDetailProps) {
 
                     <div className="flex justify-end gap-3">
                       <button
-                        className="group flex h-[42px] items-center justify-center gap-2 rounded-md border border-green-400 bg-green-100 px-3 py-3 text-green-700 shadow-sm hover:border-white hover:bg-green-400 hover:text-white disabled:cursor-not-allowed"
+                        className="group flex h-[42px] items-center justify-center gap-2 rounded-md border border-green-400 bg-green-100 px-3 py-3 text-green-700 shadow-sm transition-all hover:border-white hover:bg-green-400 hover:text-white disabled:cursor-not-allowed"
                         onClick={handleSaveEdit}
                       >
                         Salvar
@@ -138,7 +138,7 @@ export function CarDetail({ car }: CarDetailProps) {
                       </button>
 
                       <button
-                        className="group flex h-[42px] items-center justify-center gap-2 rounded-md border border-red-400 bg-red-100 px-3 py-3 text-red-700 shadow-sm hover:border-white hover:bg-red-400 hover:text-white disabled:cursor-not-allowed"
+                        className="group flex h-[42px] items-center justify-center gap-2 rounded-md border border-red-400 bg-red-100 px-3 py-3 text-red-700 shadow-sm transition-all hover:border-white hover:bg-red-400 hover:text-white disabled:cursor-not-allowed"
                         onClick={handleDiscartEdit}
                       >
                         Descartar

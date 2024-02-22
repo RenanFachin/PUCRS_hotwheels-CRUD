@@ -14,7 +14,7 @@ export function AlertDialogButton({ car }: AlertDialogButtonProps) {
       <AlertDialog.Trigger className="outline-none" asChild>
         <button
           type="button"
-          className="group flex h-[42px] items-center justify-center gap-2 rounded-md border border-highlight-300 bg-red-200/20 px-3 py-3 text-highlight-500 opacity-55 shadow-sm outline-none hover:border-white hover:bg-highlight-500 hover:text-white hover:opacity-100 focus-visible:ring-1 focus-visible:ring-highlight-500 disabled:cursor-not-allowed"
+          className="group flex h-[42px] items-center justify-center gap-2 rounded-md border border-highlight-300 bg-red-200/20 px-3 py-3 text-highlight-500 opacity-55 shadow-sm outline-none transition-all hover:border-white hover:bg-highlight-500 hover:text-white hover:opacity-100 focus-visible:ring-1 focus-visible:ring-highlight-500 disabled:cursor-not-allowed"
         >
           <Trash className="size-4" />
           <span className="sr-only">Deletar</span>
