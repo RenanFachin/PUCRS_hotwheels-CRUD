@@ -3,6 +3,29 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 
 import { Button } from '@/components/button'
+import { TypewriterEffect } from '@/components/ui/typewritter-effect'
+
+const words = [
+  {
+    text: 'Bem-vindo',
+  },
+  {
+    text: 'ao',
+  },
+  {
+    text: 'CRUD',
+    className:
+      'text-4xl font-bold leading-tight tracking-tighter text-highlight-500 underline underline-offset-4',
+  },
+  {
+    text: 'de',
+  },
+  {
+    text: 'HotWheels!',
+    className:
+      'text-4xl font-bold leading-tight tracking-tighter text-highlight-500 underline underline-offset-4',
+  },
+]
 
 export function Home() {
   return (
@@ -12,9 +35,11 @@ export function Home() {
         🚀 Página inicial
       </span>
 
-      <p className="text-3xl font-bold leading-tight tracking-tighter">
+      {/* <p className="text-3xl font-bold leading-tight tracking-tighter ">
         Bem-vindo ao CRUD de HotWheels!
-      </p>
+      </p> */}
+
+      <TypewriterEffect words={words} />
 
       <p className="max-w-md text-center text-primary-500">
         Aplicação construída para a cadeira de desenvolvimento de sistemas
