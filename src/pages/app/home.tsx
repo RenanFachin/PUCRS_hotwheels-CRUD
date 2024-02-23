@@ -15,7 +15,7 @@ const words = [
   {
     text: 'CRUD',
     className:
-      'text-4xl font-bold leading-tight tracking-tighter text-highlight-500 underline underline-offset-4',
+      'lg:text-4xl font-bold leading-tight tracking-tighter text-highlight-500 underline underline-offset-4',
   },
   {
     text: 'de',
@@ -23,7 +23,7 @@ const words = [
   {
     text: 'HotWheels!',
     className:
-      'text-4xl font-bold leading-tight tracking-tighter text-highlight-500 underline underline-offset-4',
+      'lg:text-4xl font-bold leading-tight tracking-tighter text-highlight-500 underline underline-offset-4',
   },
 ]
 
@@ -41,7 +41,7 @@ export function Home() {
 
       <TypewriterEffect words={words} />
 
-      <p className="max-w-md text-center text-primary-500">
+      <p className="max-w-md text-center text-primary-500 text-xs">
         Aplicação construída para a cadeira de desenvolvimento de sistemas
         front-end da PUC-RS
       </p>
