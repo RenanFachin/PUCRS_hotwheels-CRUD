@@ -3,11 +3,6 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 
 import { Button } from '@/components/button'
-import { CRUDCard } from '@/components/ui/crud-card'
-import {
-  GlowingStarsBackgroundCard,
-  GlowingStarsTitle,
-} from '@/components/ui/glowing-stars'
 import { TypewriterEffect } from '@/components/ui/typewritter-effect'
 
 const words = [
@@ -66,9 +61,7 @@ export function Home() {
             </Button.Icon>
 
             <Button.Text>
-              <Link to="https://github.com/RenanFachin/">
-                GitHub
-              </Link>
+              <Link to="https://github.com/RenanFachin/">GitHub</Link>
             </Button.Text>
           </Button>
         </div>
